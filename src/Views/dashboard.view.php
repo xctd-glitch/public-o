@@ -546,14 +546,20 @@ document.addEventListener('alpine:init', () => {
         },
 
         getTotalPayout() {
-            if (!Array.isArray(this.postbackData) || this.postbackData.length === 0) {
-                return parseFloat(this.postbackStats.total_payout || 0) || 0;
+            const totalPayout = parseFloat(this.postbackStats.total_payout || 0);
+
+            if (Number.isFinite(totalPayout)) {
+                return totalPayout;
             }
 
-            return this.postbackData.reduce((sum, item) => {
-                const payout = parseFloat(item.payout);
-                return sum + (Number.isFinite(payout) ? payout : 0);
-            }, 0);
+            if (Array.isArray(this.postbackData)) {
+                return this.postbackData.reduce((sum, item) => {
+                    const payout = parseFloat(item.payout);
+                    return sum + (Number.isFinite(payout) ? payout : 0);
+                }, 0);
+            }
+
+            return 0;
         },
 
         formatDateTime(dateString) {

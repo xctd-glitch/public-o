@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
           content="Smart Redirect Platform with device-aware routing, country filters, and real-time traffic insights.">
-    <meta name="theme-color" content="#f6f7f9">
+    <meta name="theme-color" content="#111827">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="/assets/icons/icon.svg">
     <link rel="apple-touch-icon" href="/assets/icons/icon-maskable.svg">

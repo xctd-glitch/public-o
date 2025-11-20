@@ -13,7 +13,7 @@ header('Expires: 0');
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="<?= htmlspecialchars($csrfToken ?? '', ENT_QUOTES, 'UTF-8'); ?>">
-    <meta name="theme-color" content="#f6f7f9">
+    <meta name="theme-color" content="#111827">
     <meta name="color-scheme" content="dark light">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="/assets/icons/icon.svg">

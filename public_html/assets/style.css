@@ -26,9 +26,16 @@
 }
 
 :root {
-    --page-bg: var(--black-025, #f8f9f9);
+    --page-bg: var(--black-025, #f7f9f8);
     --background: var(--page-bg);
     --foreground: var(--black-900, #1b1b1d);
+
+    --green-100: #eef7f2;
+    --green-200: #d6ebe0;
+    --green-300: #94ccae;
+    --green-400: #18864b;
+    --green-500: #0e6235;
+    --green-600: #0a4324;
 
     --card: var(--white, #ffffff);
     --card-bg: var(--card);
@@ -37,28 +44,28 @@
     --popover: var(--card);
     --popover-foreground: var(--foreground);
 
-    --primary: #f48024;
-    --primary-foreground: #ffffff;
+    --primary: var(--green-400);
+    --primary-foreground: #f6fffa;
 
-    --secondary: var(--black-050, #f2f2f3);
+    --secondary: var(--green-100);
     --secondary-foreground: var(--foreground);
 
-    --muted: var(--black-075, #e4e6e8);
-    --muted-foreground: var(--black-700, #525960);
+    --muted: var(--green-200);
+    --muted-foreground: #355a45;
 
     --destructive: #d03f43;
     --destructive-foreground: #ffffff;
 
-    --border: var(--black-200, #d6d9dc);
+    --border: #dbe7df;
     --input: var(--border);
-    --ring: var(--primary);
+    --ring: var(--green-400);
 
     --ring-color: var(--ring);
     --border-color: var(--border);
     --text-color: var(--foreground);
     --text-muted: var(--muted-foreground);
-    --primary-soft-bg: rgba(244, 128, 36, 0.08);
-    --primary-strong-bg: rgba(244, 128, 36, 0.16);
+    --primary-soft-bg: rgba(24, 134, 75, 0.08);
+    --primary-strong-bg: rgba(24, 134, 75, 0.16);
 }
 
 body {
@@ -144,7 +151,7 @@ body {
     border-radius: 0.5rem;
     border: 1px solid transparent;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 500;
     text-decoration: none;
     cursor: pointer;
     padding: 0.45rem 0.9rem;
@@ -168,13 +175,13 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #da6d19;
-    border-color: #da6d19;
+    background-color: var(--green-500);
+    border-color: var(--green-500);
     transform: translateY(-1px);
 }
 
 .btn-default { background-color: var(--primary); color: var(--primary-foreground); }
-.btn-default:hover { background-color: #da6d19; }
+.btn-default:hover { background-color: var(--green-500); }
 
 .btn-destructive { background-color: var(--destructive); color: var(--destructive-foreground); }
 .btn-destructive:hover { background-color: #bd2f34; }
@@ -183,7 +190,7 @@ body {
 .btn-outline:hover { background-color: var(--secondary); }
 
 .btn-secondary { background-color: var(--secondary); color: var(--secondary-foreground); }
-.btn-secondary:hover { background-color: #e4e6e8; }
+.btn-secondary:hover { background-color: var(--green-200); }
 
 .btn-ghost { background-color: transparent; color: var(--foreground); border-color: transparent; }
 .btn-ghost:hover { background-color: var(--primary-soft-bg); border-color: var(--primary); }

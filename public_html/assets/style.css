@@ -30,24 +30,26 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: hsl(240 4.8% 96.5%);
+            background: var(--page-bg);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: hsl(240 5.9% 88%);
-            border-radius: 3px;
+            background: var(--border-color);
+            border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: hsl(240 3.8% 46.1%);
+            background: var(--muted-foreground);
         }
 
         :root {
             /* Core colors */
-            --background: hsl(0 0% 100%);
+            --page-bg: hsl(210 20% 97%);
+            --background: var(--page-bg);
             --foreground: hsl(240 10% 3.9%);
 
             --card: hsl(0 0% 100%);
+            --card-bg: var(--card);
             --card-foreground: hsl(240 10% 3.9%);
 
             --popover: hsl(0 0% 100%);
@@ -69,18 +71,16 @@
             --destructive-foreground: hsl(0 0% 98%);
 
             --border: hsl(240 5.9% 90%);
-            --input: hsl(240 5.9% 90%);
+            --input: var(--border);
             --ring: hsl(240 5.9% 10%);
 
             /* Legacy compatibility */
             --ring-color: var(--ring);
             --border-color: var(--border);
-            --page-bg: hsl(210 20% 97%);
-            --card-bg: var(--card);
             --text-color: var(--foreground);
             --text-muted: var(--muted-foreground);
-            --primary-soft-bg: rgba(15, 23, 42, 0.04);
-            --primary-strong-bg: rgba(15, 23, 42, 0.08);
+            --primary-soft-bg: hsla(240, 5.9%, 10%, 0.04);
+            --primary-strong-bg: hsla(240, 5.9%, 10%, 0.08);
         }
 
         * {
@@ -91,7 +91,7 @@
             margin: 0;
             min-height: 100vh;
             color: var(--foreground);
-            background-color: var(--page-bg);
+            background-color: var(--background);
         }
 
         .page {
@@ -239,9 +239,9 @@
         }
 
         .card {
-            border-radius: .3rem;
-            border: 1px solid var(--border);
-            background-color: var(--card);
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
             color: var(--card-foreground);
             padding: 1.25rem 1.5rem;
         }

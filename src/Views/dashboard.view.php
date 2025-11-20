@@ -121,7 +121,7 @@ document.addEventListener('alpine:init', () => {
         postbackData: [],
         postbackStats: {
             total_conversions: 0,
-            total_payout: 0,
+            total_payout: null,
             avg_payout: 0,
             today_conversions: 0,
             today_payout: 0
@@ -528,12 +528,13 @@ document.addEventListener('alpine:init', () => {
                 }
 
                 this.postbackData = result.data || [];
-                this.postbackStats = result.stats || {
+                this.postbackStats = {
                     total_conversions: 0,
-                    total_payout: 0,
+                    total_payout: null,
                     avg_payout: 0,
                     today_conversions: 0,
-                    today_payout: 0
+                    today_payout: 0,
+                    ...(result.stats || {})
                 };
                 this.postbackChartData = result.chart || [];
 
@@ -546,10 +547,14 @@ document.addEventListener('alpine:init', () => {
         },
 
         getTotalPayout() {
-            const totalPayout = parseFloat(this.postbackStats.total_payout || 0);
+            const totalPayoutRaw = this.postbackStats?.total_payout;
 
-            if (Number.isFinite(totalPayout)) {
-                return totalPayout;
+            if (totalPayoutRaw !== null && totalPayoutRaw !== undefined) {
+                const totalPayout = parseFloat(totalPayoutRaw);
+
+                if (Number.isFinite(totalPayout)) {
+                    return totalPayout;
+                }
             }
 
             if (Array.isArray(this.postbackData)) {

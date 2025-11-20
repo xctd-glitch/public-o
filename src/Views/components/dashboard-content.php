@@ -1,7 +1,7 @@
 <!-- Tabs Navigation -->
 <?php require __DIR__ . '/tabs-navigation.php'; ?>
 
-<div class="max-w-4xl mx-auto py-3 lg:py-4 px-5">
+<div class="page-shell space-y-4">
     <!-- Overview Tab -->
     <?php require __DIR__ . '/overview-tab.php'; ?>
 
@@ -16,7 +16,7 @@
 </div>
 
 <!-- OLD CONTENT BELOW (can be removed after testing) -->
-<div class="max-w-4xl mx-auto py-3 lg:py-4 space-y-4 lg:space-y-5 px-5" style="display:none;">
+<div class="page-shell py-3 lg:py-4 space-y-4 lg:space-y-5" style="display:none;">
     <!-- Row 1: 4 small boxes -->
     <div class="grid gap-3 grid-cols-2 md:grid-cols-4">
         <!-- Total Requests -->

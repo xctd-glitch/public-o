@@ -3,13 +3,13 @@ $pageTitle = 'SRP Login';
 require __DIR__ . '/components/header.php';
 ?>
 
-<header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-    <div class="flex h-12 max-w-4xl mx-auto items-center px-5">
-        <div class="flex items-center space-x-2">
+<header class="topbar">
+    <div class="topbar__inner">
+        <div class="brand">
             <img src="/assets/icons/fox-head.svg" alt="Fox head logo" class="h-5 w-5" width="20" height="20">
-            <div class="flex flex-col leading-tight">
+            <div class="brand__meta">
                 <span class="text-sm font-semibold tracking-tight">Smart Redirect Platform</span>
-                <span class="text-[11px] text-muted-foreground">No "smart" buzzword without actual routing logic.</span>
+                <span class="brand__subtitle">No "smart" buzzword without actual routing logic.</span>
             </div>
         </div>
     </div>
@@ -47,11 +47,11 @@ require __DIR__ . '/components/header.php';
 <?php endif; ?>
 
 <main class="flex-1 w-full">
-    <div class="max-w-4xl mx-auto px-5 pt-10 md:pt-16 pb-8">
+    <div class="page-shell">
         <div class="w-full max-w-sm mx-auto">
-            <div class="mb-6 flex flex-col items-center text-center space-y-2">
-                <div class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                    <img src="/assets/icons/fox-head.svg" alt="Fox head logo" class="h-4 w-4" width="16" height="16">
+            <div class="mb-6 flex flex-col items-center text-center space-y-3">
+                <div class="inline-flex h-12 w-12 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-sm">
+                    <img src="/assets/icons/fox-head.svg" alt="Fox head logo" class="h-5 w-5" width="16" height="16">
                 </div>
                 <div>
                     <h1 class="text-base font-semibold tracking-tight">Sign in</h1>
@@ -61,7 +61,7 @@ require __DIR__ . '/components/header.php';
                 </div>
             </div>
 
-            <div class="card p-4 space-y-4">
+            <div class="card surface p-5 space-y-4">
                 <form method="post" autocomplete="off" class="space-y-3">
     <input type="hidden" name="csrf_token"
            value="<?= htmlspecialchars($csrfToken ?? '', ENT_QUOTES, 'UTF-8'); ?>">
@@ -73,18 +73,18 @@ require __DIR__ . '/components/header.php';
         </label>
         <input
             type="text"
-            class="input"
+            class="input s-input"
             id="username"
             name="username"
             required
             autocomplete="username"
             maxlength="191"
             placeholder="username">
-    </div>
+        </div>
 
-    <!-- PASSWORD -->
-    <div class="space-y-1.5">
-        <div class="flex items-center justify-between">
+        <!-- PASSWORD -->
+        <div class="space-y-1.5">
+            <div class="flex items-center justify-between">
             <label for="password" class="text-xs font-medium leading-none">
                 Password
             </label>
@@ -94,7 +94,7 @@ require __DIR__ . '/components/header.php';
         </div>
         <input
             type="password"
-            class="input"
+            class="input s-input"
             id="password"
             name="password"
             required
@@ -116,7 +116,7 @@ require __DIR__ . '/components/header.php';
     </div>
 
     <!-- SUBMIT -->
-    <button type="submit" class="btn btn-default btn-default-size w-full mt-1">
+    <button type="submit" class="btn btn-default btn-default-size s-btn s-btn__primary w-full mt-1">
         <svg class="h-3.5 w-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                   d="M5 12h14M12 5l7 7-7 7"></path>

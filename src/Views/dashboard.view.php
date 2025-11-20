@@ -3,33 +3,19 @@ $pageTitle = 'SRP Traffic Control';
 require __DIR__ . '/components/header.php';
 ?>
 <div x-data="dash" x-cloak>
-<header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-    <div class="flex h-12 max-w-4xl mx-auto items-center px-5">
-        <div class="mr-3 hidden md:flex">
-            <a href="/" class="mr-4 flex items-center space-x-2">
-                <img src="/assets/icons/fox-head.svg" alt="Fox head logo" class="h-5 w-5" width="20" height="20">
-                <div class="flex flex-col leading-tight">
-                <span class="font-semibold text-sm tracking-tight">SRP Smart Redirect Platform</span>
-                 <span class="text-[11px] text-muted-foreground">No "smart" buzzword without actual routing logic.</span>
-                 </div>
-            </a>
-        </div>
-
-        <button @click="mobileMenuOpen = !mobileMenuOpen" class="mr-2 md:hidden btn btn-ghost btn-icon" aria-label="Toggle navigation">
-            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
-        </button>
-
-        <div class="flex md:hidden items-center space-x-2">
-            <img src="/assets/icons/fox-head.svg" alt="Fox head logo" class="h-4 w-4" width="16" height="16">
-            <span class="font-semibold text-xs tracking-tight">SRP</span>
-        </div>
+<header class="topbar">
+    <div class="topbar__inner">
+        <a href="/" class="brand">
+            <img src="/assets/icons/fox-head.svg" alt="Fox head logo" class="h-5 w-5" width="20" height="20">
+            <div class="brand__meta">
+                <span class="text-sm font-semibold tracking-tight">SRP Smart Redirect Platform</span>
+                <span class="brand__subtitle">No "smart" buzzword without actual routing logic.</span>
+            </div>
+        </a>
 
         <div class="flex flex-1 items-center justify-end space-x-2">
-            <div class="flex items-center space-x-2 rounded-md px-2 sm:px-2.5 py-1 transition-colors duration-200"
-                 :class="cfg.system_on ? (muteStatus.isMuted ? 'bg-amber-500 text-white' : 'bg-primary text-primary-foreground') : 'border'">
+            <div class="flex items-center space-x-2 rounded-md px-2 sm:px-2.5 py-1 border transition-colors duration-200"
+                 :class="cfg.system_on ? (muteStatus.isMuted ? 'bg-amber-500 text-white border-amber-500' : 'bg-primary text-primary-foreground border-primary') : 'border border-default'">
                 <div class="h-1.5 w-1.5 rounded-full transition-all duration-200"
                      :class="cfg.system_on ? (muteStatus.isMuted ? 'bg-white animate-pulse' : 'bg-emerald-500 animate-pulse') : 'bg-muted-foreground'"></div>
                 <span class="text-[11px] font-medium hidden sm:inline"
@@ -39,7 +25,7 @@ require __DIR__ . '/components/header.php';
             <form method="post" action="/logout.php" class="hidden sm:block">
                 <input type="hidden" name="csrf_token"
                        value="<?= htmlspecialchars($csrfToken ?? '', ENT_QUOTES, 'UTF-8'); ?>">
-                <button type="submit" class="btn btn-secondary btn-sm">Logout</button>
+                <button type="submit" class="btn btn-secondary btn-sm s-btn">Logout</button>
             </form>
 
             <form method="post" action="/logout.php" class="sm:hidden">

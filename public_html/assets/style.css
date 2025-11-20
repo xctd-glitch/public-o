@@ -26,39 +26,34 @@
 }
 
 :root {
-    --page-bg: var(--black-025, #f8f9f9);
+    --ring-color: hsl(240 5.9% 10%);
+    --muted-foreground: hsl(240 3.8% 46.1%);
+    --border-color: hsl(240 5.9% 90%);
+    --primary: hsl(240 5.9% 10%);
+    --primary-foreground: hsl(0 0% 98%);
+    --secondary: hsl(240 4.8% 95.9%);
+    --secondary-foreground: hsl(240 5.9% 10%);
+    --destructive: hsl(0 84.2% 60.2%);
+    --destructive-foreground: hsl(0 0% 98%);
+    --page-bg: hsl(210 20% 97%);
+    --card-bg: hsl(0 0% 100%);
+
     --background: var(--page-bg);
-    --foreground: var(--black-900, #1b1b1d);
-
-    --card: var(--white, #ffffff);
-    --card-bg: var(--card);
+    --foreground: hsl(240 10% 3.9%);
+    --card: var(--card-bg);
     --card-foreground: var(--foreground);
-
     --popover: var(--card);
     --popover-foreground: var(--foreground);
-
-    --primary: #f48024;
-    --primary-foreground: #ffffff;
-
-    --secondary: var(--black-050, #f2f2f3);
-    --secondary-foreground: var(--foreground);
-
-    --muted: var(--black-075, #e4e6e8);
-    --muted-foreground: var(--black-700, #525960);
-
-    --destructive: #d03f43;
-    --destructive-foreground: #ffffff;
-
-    --border: var(--black-200, #d6d9dc);
+    --muted: var(--secondary);
+    --border: var(--border-color);
     --input: var(--border);
-    --ring: var(--primary);
+    --ring: var(--ring-color);
 
-    --ring-color: var(--ring);
-    --border-color: var(--border);
+    /* Derived for demo */
     --text-color: var(--foreground);
     --text-muted: var(--muted-foreground);
-    --primary-soft-bg: rgba(244, 128, 36, 0.08);
-    --primary-strong-bg: rgba(244, 128, 36, 0.16);
+    --primary-soft-bg: rgba(15, 23, 42, 0.04);
+    --primary-strong-bg: rgba(15, 23, 42, 0.08);
 }
 
 body {

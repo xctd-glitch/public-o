@@ -545,6 +545,17 @@ document.addEventListener('alpine:init', () => {
             }
         },
 
+        getTotalPayout() {
+            if (!Array.isArray(this.postbackData) || this.postbackData.length === 0) {
+                return parseFloat(this.postbackStats.total_payout || 0) || 0;
+            }
+
+            return this.postbackData.reduce((sum, item) => {
+                const payout = parseFloat(item.payout);
+                return sum + (Number.isFinite(payout) ? payout : 0);
+            }, 0);
+        },
+
         formatDateTime(dateString) {
             if (!dateString) return '-';
             const date = new Date(dateString);

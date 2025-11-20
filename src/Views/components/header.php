@@ -12,7 +12,7 @@ header('Expires: 0');
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="<?= htmlspecialchars($csrfToken ?? '', ENT_QUOTES, 'UTF-8'); ?>">
-    <meta name="theme-color" content="#111827">
+    <meta name="theme-color" content="#f6f7f9">
     <meta name="color-scheme" content="dark light">
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/svg+xml" href="/assets/icons/icon.svg">
@@ -32,7 +32,7 @@ header('Expires: 0');
                         border: "hsl(240 5.9% 90%)",
                         input: "hsl(240 5.9% 90%)",
                         ring: "hsl(240 5.9% 10%)",
-                        background: "hsl(0 0% 100%)",
+                        background: "hsl(210 20% 97%)",
                         foreground: "hsl(240 10% 3.9%)",
                         primary: {
                             DEFAULT: "hsl(240 5.9% 10%)",
@@ -50,10 +50,6 @@ header('Expires: 0');
                             DEFAULT: "hsl(240 4.8% 95.9%)",
                             foreground: "hsl(240 3.8% 46.1%)"
                         },
-                        accent: {
-                            DEFAULT: "hsl(240 4.8% 95.9%)",
-                            foreground: "hsl(240 5.9% 10%)"
-                        },
                         popover: {
                             DEFAULT: "hsl(0 0% 100%)",
                             foreground: "hsl(240 10% 3.9%)"
@@ -64,9 +60,9 @@ header('Expires: 0');
                         }
                     },
                     borderRadius: {
-                        lg: "0.3rem",
-                        md: "calc(0.3rem - 2px)",
-                        sm: "calc(0.3rem - 4px)"
+                        lg: "0.75rem",
+                        md: "0.5rem",
+                        sm: "0.375rem"
                     },
                     fontFamily: {
                         sans: [
@@ -91,4 +87,5 @@ header('Expires: 0');
     <link rel="stylesheet" type="text/css" href="/assets/style.css?v=<?= time(); ?>" id="preload-stylesheet"/>
     <script src="/pwa/register-sw.js?v=<?= time(); ?>" defer></script>
 </head>
-<body class="min-h-screen bg-[color:var(--page-bg)] text-foreground font-sans antialiased flex flex-col text-sm">
+<body class="min-h-screen bg-background text-foreground font-sans antialiased flex flex-col text-sm">
+

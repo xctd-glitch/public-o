@@ -1,0 +1,5 @@
+logs/
+tmp/
+public_html/assets/dist/
+node_modules/
+vendor/

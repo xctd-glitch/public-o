@@ -88,3 +88,4 @@ header('Expires: 0');
     <script src="/pwa/register-sw.js?v=<?= time(); ?>" defer></script>
 </head>
 <body class="min-h-screen bg-background text-foreground font-sans antialiased flex flex-col text-sm">
+

@@ -15,17 +15,16 @@
 
 declare(strict_types=1);
 
+use SRP\Config\Environment;
+use SRP\Models\TrafficLog;
+
 // Only allow CLI execution
 if (PHP_SAPI !== 'cli') {
     http_response_code(403);
     exit('This script can only be run from command line');
 }
 
-require __DIR__ . '/_bootstrap.php';
-
-use function SRP\env;
-use function SRP\autoCleanupLogs;
-use function SRP\getCleanupStats;
+require __DIR__ . '/src/bootstrap.php';
 
 // Script configuration
 $dryRun = in_array('--dry-run', $argv ?? [], true);
@@ -33,7 +32,7 @@ $verbose = in_array('--verbose', $argv ?? [], true) || in_array('-v', $argv ?? [
 $force = in_array('--force', $argv ?? [], true);
 
 // Get retention period from environment
-$retentionDays = (int)env('SRP_LOG_RETENTION_DAYS', '7');
+$retentionDays = (int)Environment::get('SRP_LOG_RETENTION_DAYS', '7');
 if ($retentionDays < 1 || $retentionDays > 365) {
     $retentionDays = 7; // Default to 7 days
 }
@@ -53,7 +52,7 @@ echo "BEFORE CLEANUP\n";
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
 
 try {
-    $statsBefore = getCleanupStats();
+    $statsBefore = TrafficLog::getStats();
 
     echo "Total Logs: " . number_format($statsBefore['total']) . "\n";
     echo "Oldest Log: " . $statsBefore['oldest_days'] . " days ago\n";
@@ -79,7 +78,7 @@ try {
         $deleted = 0; // Simulate
     } else {
         echo "\n🗑️  Deleting logs older than {$retentionDays} days...\n";
-        $deleted = autoCleanupLogs($retentionDays);
+        $deleted = TrafficLog::autoCleanup($retentionDays);
     }
 
     // Get statistics after cleanup
@@ -87,7 +86,7 @@ try {
     echo "AFTER CLEANUP\n";
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n";
 
-    $statsAfter = getCleanupStats();
+    $statsAfter = TrafficLog::getStats();
 
     echo "Deleted Logs: " . number_format($deleted) . "\n";
     echo "Remaining Logs: " . number_format($statsAfter['total']) . "\n";
